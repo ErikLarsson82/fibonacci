@@ -1,10 +1,10 @@
 //Un-optimized
 function fibonacci(idx) {
   if (idx === 0)
-    return 0
+    return new BigNumber(0)
   if (idx === 1)
-    return 1
-  return fibonacci(idx - 1) + fibonacci(idx - 2)
+    return new BigNumber(1)
+  return fibonacci(idx - 1).plus(fibonacci(idx - 2))
 }
 
 //Optimized by cache
@@ -13,10 +13,10 @@ const superFib = (function() {
 
     function fibCore(idx) {
       if (idx === 0)
-        return 0
+        return new BigNumber(0)
       if (idx === 1)
-        return 1
-      return superFib(idx - 1) + superFib(idx - 2)
+        return new BigNumber(1)
+      return superFib(idx - 1).plus(superFib(idx - 2))
     }
     
     return idx => {
